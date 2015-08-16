@@ -15,7 +15,6 @@
  * @copyright 2015-2016 odan
  * @license http://opensource.org/licenses/MIT The MIT License (MIT)
  * @link https://github.com/odan/luhn
- * 
  */
 
 namespace Molengo;

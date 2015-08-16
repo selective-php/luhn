@@ -1,27 +1,21 @@
 <?php
 
 /**
- * The MIT License (MIT)
- *
- * Copyright (c) 2015 odan
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
+ * Luhn algorithm
+ * 
+ * The Luhn algorithm or Luhn formula, also known as the "modulus 10" or 
+ * "mod 10" algorithm, is a simple checksum formula used to validate a 
+ * variety of identification numbers, such as credit card numbers, 
+ * IMEI numbers, National Provider Identifier numbers in the US, and 
+ * Canadian Social Insurance Numbers. It was created by IBM scientist 
+ * Hans Peter Luhn and described in U.S. Patent No. 2,950,048, filed 
+ * on January 6, 1954, and granted on August 23, 1960.
+ *  
+ * @author odan
+ * @copyright 2015-2016 odan
+ * @license http://opensource.org/licenses/MIT The MIT License (MIT)
+ * @link https://github.com/odan/luhn
+ * 
  */
 class Luhn
 {
@@ -32,7 +26,7 @@ class Luhn
      * @param string $s numbers as string
      * @return int checksum digit
      */
-    public function getLuhn($s)
+    public function create($s)
     {
         // Add a zero check digit
         $s = $s . '0';
@@ -52,12 +46,11 @@ class Luhn
 
     /**
      * Check luhn number
-     * http://de.wikipedia.org/wiki/Luhn-Algorithmus#PHP
      *
      * @param string $number
      * @return bool
      */
-    public function checkLuhn($number)
+    public function validate($number)
     {
         $sum = 0;
         $numDigits = strlen($number) - 1;
@@ -72,37 +65,4 @@ class Luhn
         }
         return (0 == ($sum % 10));
     }
-
-    /**
-     * Generate unique number by number with checksum
-     *
-     * @param string $strNumber number as string
-     * @param string $strPrefix numeric prefix (only digits)
-     * @return string
-     */
-    public function encodeNumber($strNumber, $strPrefix = '')
-    {
-        $strHex = substr(sha1($strNumber), 0, 12);
-        $strReturn = $this->padHex($strHex);
-        $strReturn = $strPrefix . $strReturn;
-        $strReturn .= $this->getLuhn($strReturn);
-        return $strReturn;
-    }
-
-    /**
-     * Convert hex string to padded decimal numbers
-     *
-     * @param string $strHex
-     * @return string
-     */
-    protected function padHex($strHex)
-    {
-        $strReturn = '';
-        $arrBlocks = str_split($strHex, 2);
-        foreach ($arrBlocks as $strHex) {
-            $strReturn .= str_pad(hexdec($strHex), 3, '0', STR_PAD_LEFT);
-        }
-        return $strReturn;
-    }
-
 }

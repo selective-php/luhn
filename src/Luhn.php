@@ -17,6 +17,9 @@
  * @link https://github.com/odan/luhn
  * 
  */
+
+namespace Molengo;
+
 class Luhn
 {
 

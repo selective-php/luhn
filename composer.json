@@ -1,0 +1,23 @@
+{
+    "name": "odan/mluhn",
+    "type": "library",
+    "description": "Luhn library, modulo 10",
+    "keywords": ["library"],
+    "homepage": "http://github.com/odan/luhn",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "odan",
+            "email": "support@molengo.com",
+            "homepage": "http://www.molengo.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Molengo\\": "src/Molengo"
+        }
+    }
+}

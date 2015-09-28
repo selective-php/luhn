@@ -1,5 +1,5 @@
 {
-    "name": "odan/mluhn",
+    "name": "odan/luhn",
     "type": "library",
     "description": "Luhn library, modulo 10",
     "keywords": ["library"],
@@ -13,11 +13,11 @@
         }
     ],
     "require": {
-        "php": ">=5.3"
+        "php": ">=5.4"
     },
     "autoload": {
         "psr-4": {
-            "Molengo\\": "src/Molengo"
+            "Odan\\Algorithm\\": "src/Algorithm"
         }
     }
 }

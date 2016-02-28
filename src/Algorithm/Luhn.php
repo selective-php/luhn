@@ -17,7 +17,7 @@
  * @link https://github.com/odan/luhn
  */
 
-namespace Odan\Algorithm;
+namespace Odan\Luhn;
 
 class Luhn
 {

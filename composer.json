@@ -1,23 +1,18 @@
 {
-    "name": "odan/luhn",
+    "name": "selective/luhn",
     "type": "library",
     "description": "Luhn library, modulo 10",
-    "keywords": ["library"],
-    "homepage": "http://github.com/odan/luhn",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "odan",
-            "email": "support@molengo.com",
-            "homepage": "http://www.molengo.com"
-        }
+    "keywords": [
+        "luhn"
     ],
+    "homepage": "https://github.com/selective-php/luhn",
+    "license": "MIT",
     "require": {
-        "php": ">=5.4"
+        "php": ">=7"
     },
     "autoload": {
         "psr-4": {
-            "Odan\\Algorithm\\": "src/Algorithm"
+            "Selective\\Luhn\\": "src"
         }
     }
 }

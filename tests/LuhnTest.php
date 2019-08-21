@@ -10,10 +10,10 @@ class LuhnTest extends TestCase
     public function providerValidateValidNumber(): array
     {
         return [
-            ['1982'],
-            ['19828'],
-            ['67'],
-            ['79927398713']
+            ['1982', true],
+            ['19828', true],
+            ['67', true],
+            ['79927398713', true]
         ];
     }
 
@@ -21,29 +21,30 @@ class LuhnTest extends TestCase
      * @dataProvider providerValidateValidNumber
      *
      * @param string $validNumber
+     * @param bool $expected
      */
-    public function testValidateValidNumber(string $validNumber): void
+    public function testValidateValidNumber(string $validNumber, bool $expected): void
     {
         $luhn = new Luhn();
 
-        $this->assertTrue($luhn->validate($validNumber));
+        $this->assertSame($expected, $luhn->validate($validNumber));
     }
 
     public function providerValidateInvalidNumber(): array
     {
         return [
-            ['19829'],
-            ['677'],
-            ['123456']
-            ['79927398710'],
-            ['79927398711'],
-            ['79927398712'],
-            ['79927398714'],
-            ['79927398715'],
-            ['79927398716'],
-            ['79927398717'],
-            ['79927398718'],
-            ['79927398719'],
+            ['19829', false],
+            ['677', false],
+            ['123456', false],
+            ['79927398710', false],
+            ['79927398711', false],
+            ['79927398712', false],
+            ['79927398714', false],
+            ['79927398715', false],
+            ['79927398716', false],
+            ['79927398717', false],
+            ['79927398718', false],
+            ['79927398719', false],
         ];
     }
 
@@ -51,12 +52,13 @@ class LuhnTest extends TestCase
      * @dataProvider providerValidateInvalidNumber
      *
      * @param string $invalidNumber
+     * @param bool $expected
      */
-    public function testValidateInvalidNumber(string $invalidNumber): void
+    public function testValidateInvalidNumber(string $invalidNumber, bool $expected): void
     {
         $luhn = new Luhn();
 
-        $this->assertFalse($luhn->validate($invalidNumber));
+        $this->assertSame($expected, $luhn->validate($invalidNumber));
     }
 
     public function providerCreateNumber(): array

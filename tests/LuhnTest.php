@@ -18,6 +18,8 @@ class LuhnTest extends TestCase
 
     /**
      * @dataProvider providerValidateValidNumber
+     *
+     * @param string $validNumber
      */
     public function testValidateValidNumber(string $validNumber): void
     {
@@ -37,6 +39,8 @@ class LuhnTest extends TestCase
 
     /**
      * @dataProvider providerValidateInvalidNumber
+     *
+     * @param string $invalidNumber
      */
     public function testValidateInvalidNumber(string $invalidNumber): void
     {
@@ -56,6 +60,9 @@ class LuhnTest extends TestCase
 
     /**
      * @dataProvider providerCreateNumber
+     *
+     * @param string $number
+     * @param int $expected
      */
     public function testCreate(string $number, int $expected): void
     {

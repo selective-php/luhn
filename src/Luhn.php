@@ -14,6 +14,8 @@
 
 namespace Selective\Luhn;
 
+use InvalidArgumentException;
+
 /**
  * Luhn.
  */
@@ -28,6 +30,8 @@ class Luhn
      */
     public function create(string $numbers): int
     {
+        $this->validateNumericString($numbers);
+
         // Add a zero check digit
         $numbers .= '0';
         $sum = 0;
@@ -54,6 +58,8 @@ class Luhn
      */
     public function validate(string $number): bool
     {
+        $this->validateNumericString($number);
+
         $sum = 0;
         $numDigits = strlen($number) - 1;
         $parity = $numDigits % 2;
@@ -68,5 +74,12 @@ class Luhn
         }
 
         return 0 == ($sum % 10);
+    }
+
+    private function validateNumericString(string $number): void
+    {
+        if (!preg_match('/^\d+$/', $number)) {
+            throw new InvalidArgumentException(sprintf('An invalid numeric value was given: %s', $number));
+        }
     }
 }

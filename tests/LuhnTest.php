@@ -4,6 +4,7 @@ namespace Selective\Luhn\Test;
 
 use Selective\Luhn\Luhn;
 use PHPUnit\Framework\TestCase;
+use InvalidArgumentException;
 
 class LuhnTest extends TestCase
 {
@@ -82,5 +83,27 @@ class LuhnTest extends TestCase
         $luhn = new Luhn();
 
         $this->assertSame($expected, $luhn->create($number));
+    }
+
+    public function testCreateOnInvalidNumericString(): void
+    {
+        $luhn = new Luhn();
+        $invalidNumericString = 'this_is_invalid_numeric_string';
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(sprintf('An invalid numeric value was given: %s', $invalidNumericString));
+
+        $luhn->create($invalidNumericString);
+    }
+
+    public function testValidateOnInvalidNumericString(): void
+    {
+        $luhn = new Luhn();
+        $invalidNumericString = 'this_is_invalid_numeric_string';
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage(sprintf('An invalid numeric value was given: %s', $invalidNumericString));
+
+        $luhn->validate($invalidNumericString);
     }
 }

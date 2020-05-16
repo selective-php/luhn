@@ -24,6 +24,8 @@ composer require selective/luhn
 ### Create a number
 
 ```php
+<?php
+
 use Selective\Luhn\Luhn;
 
 $luhn = new Luhn();
@@ -34,6 +36,8 @@ echo $luhn->create('7992739871'); // 3
 ### Validate a number
 
 ```php
+<?php
+
 use Selective\Luhn\Luhn;
 
 $luhn = new Luhn();

@@ -24,9 +24,9 @@ class Luhn
     /**
      * Returns the luhn check digit.
      *
-     * @param string $numbers numbers as string
+     * @param string $numbers Numbers as string
      *
-     * @return int checksum digit
+     * @return int Checksum digit
      */
     public function create(string $numbers): int
     {
@@ -43,7 +43,12 @@ class Luhn
             // Add the current digit
             $sum += $numbers[$i];
             // If the digit is even, add it again. Adjust for digits 10+ by subtracting 9.
-            ($odd_length == ($i % 2)) ? ($numbers[$i] > 4) ? ($sum += ((int)$numbers[$i] - 9)) : ($sum += $numbers[$i]) : false;
+            if ($odd_length === ($i % 2) && $numbers[$i] > 4) {
+                $sum += ((int)$numbers[$i] - 9);
+            }
+            if ($odd_length === ($i % 2) && $numbers[$i] <= 4) {
+                $sum += $numbers[$i];
+            }
         }
 
         return (10 - ($sum % 10)) % 10;
@@ -76,6 +81,13 @@ class Luhn
         return 0 == ($sum % 10);
     }
 
+    /**
+     * Validate numeric string
+     *
+     * @param string $number The number to validate
+     *
+     * @return void
+     */
     private function validateNumericString(string $number): void
     {
         if (!preg_match('/^\d+$/', $number)) {

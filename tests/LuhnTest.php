@@ -8,6 +8,11 @@ use InvalidArgumentException;
 
 class LuhnTest extends TestCase
 {
+    /**
+     * Data provider about validating valid number
+     *
+     * @return array<mixed>
+     */
     public function providerValidateValidNumber(): array
     {
         return [
@@ -21,8 +26,10 @@ class LuhnTest extends TestCase
     /**
      * @dataProvider providerValidateValidNumber
      *
-     * @param string $validNumber
-     * @param bool $expected
+     * @param string $validNumber A valid numeric string
+     * @param bool $expected A expected numeric string
+     *
+     * @return void
      */
     public function testValidateValidNumber(string $validNumber, bool $expected): void
     {
@@ -31,6 +38,11 @@ class LuhnTest extends TestCase
         $this->assertSame($expected, $luhn->validate($validNumber));
     }
 
+    /**
+     * Data provider about validating invalid number
+     *
+     * @return array<mixed>
+     */
     public function providerValidateInvalidNumber(): array
     {
         return [
@@ -52,8 +64,10 @@ class LuhnTest extends TestCase
     /**
      * @dataProvider providerValidateInvalidNumber
      *
-     * @param string $invalidNumber
-     * @param bool $expected
+     * @param string $invalidNumber A invalid numeric string
+     * @param bool $expected A expected numeric string
+     *
+     * @return void
      */
     public function testValidateInvalidNumber(string $invalidNumber, bool $expected): void
     {
@@ -62,6 +76,11 @@ class LuhnTest extends TestCase
         $this->assertSame($expected, $luhn->validate($invalidNumber));
     }
 
+    /**
+     * Data provider about creating number
+     *
+     * @return array<mixed>
+     */
     public function providerCreateNumber(): array
     {
         return [
@@ -75,8 +94,10 @@ class LuhnTest extends TestCase
     /**
      * @dataProvider providerCreateNumber
      *
-     * @param string $number
-     * @param int $expected
+     * @param string $number A valid numeric string
+     * @param int $expected A expected numeric string
+     *
+     * @return void
      */
     public function testCreate(string $number, int $expected): void
     {
@@ -85,6 +106,11 @@ class LuhnTest extends TestCase
         $this->assertSame($expected, $luhn->create($number));
     }
 
+    /**
+     * Test for creating on invalid numeric string
+     *
+     * @return void
+     */
     public function testCreateOnInvalidNumericString(): void
     {
         $luhn = new Luhn();
@@ -96,6 +122,11 @@ class LuhnTest extends TestCase
         $luhn->create($invalidNumericString);
     }
 
+    /**
+     * Test for validating on invalid numeric string
+     *
+     * @return void
+     */
     public function testValidateOnInvalidNumericString(): void
     {
         $luhn = new Luhn();

@@ -16,10 +16,10 @@ class LuhnTest extends TestCase
     public function providerValidateValidNumber(): array
     {
         return [
-            ['1982', true],
-            ['19828', true],
-            ['67', true],
-            ['79927398713', true]
+            ['1982'],
+            ['19828'],
+            ['67'],
+            ['79927398713']
         ];
     }
 
@@ -27,15 +27,14 @@ class LuhnTest extends TestCase
      * @dataProvider providerValidateValidNumber
      *
      * @param string $validNumber A valid numeric string
-     * @param bool $expected A expected numeric string
      *
      * @return void
      */
-    public function testValidateValidNumber(string $validNumber, bool $expected): void
+    public function testValidateValidNumber(string $validNumber): void
     {
         $luhn = new Luhn();
 
-        $this->assertSame($expected, $luhn->validate($validNumber));
+        $this->assertTrue($luhn->validate($validNumber));
     }
 
     /**
@@ -46,18 +45,18 @@ class LuhnTest extends TestCase
     public function providerValidateInvalidNumber(): array
     {
         return [
-            ['19829', false],
-            ['677', false],
-            ['123456', false],
-            ['79927398710', false],
-            ['79927398711', false],
-            ['79927398712', false],
-            ['79927398714', false],
-            ['79927398715', false],
-            ['79927398716', false],
-            ['79927398717', false],
-            ['79927398718', false],
-            ['79927398719', false],
+            ['19829'],
+            ['677'],
+            ['123456'],
+            ['79927398710'],
+            ['79927398711'],
+            ['79927398712'],
+            ['79927398714'],
+            ['79927398715'],
+            ['79927398716'],
+            ['79927398717'],
+            ['79927398718'],
+            ['79927398719'],
         ];
     }
 
@@ -65,15 +64,14 @@ class LuhnTest extends TestCase
      * @dataProvider providerValidateInvalidNumber
      *
      * @param string $invalidNumber A invalid numeric string
-     * @param bool $expected A expected numeric string
      *
      * @return void
      */
-    public function testValidateInvalidNumber(string $invalidNumber, bool $expected): void
+    public function testValidateInvalidNumber(string $invalidNumber): void
     {
         $luhn = new Luhn();
 
-        $this->assertSame($expected, $luhn->validate($invalidNumber));
+        $this->assertFalse($luhn->validate($invalidNumber));
     }
 
     /**

@@ -82,7 +82,7 @@ class Luhn
     }
 
     /**
-     * Validate numeric string
+     * Validate numeric string.
      *
      * @param string $number The number to validate
      *

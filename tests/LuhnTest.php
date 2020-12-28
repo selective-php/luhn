@@ -2,14 +2,17 @@
 
 namespace Selective\Luhn\Test;
 
-use Selective\Luhn\Luhn;
-use PHPUnit\Framework\TestCase;
 use InvalidArgumentException;
+use PHPUnit\Framework\TestCase;
+use Selective\Luhn\Luhn;
 
+/**
+ * Test.
+ */
 class LuhnTest extends TestCase
 {
     /**
-     * Data provider about validating valid number
+     * Data provider about validating valid number.
      *
      * @return array<mixed>
      */
@@ -19,7 +22,7 @@ class LuhnTest extends TestCase
             ['1982'],
             ['19828'],
             ['67'],
-            ['79927398713']
+            ['79927398713'],
         ];
     }
 
@@ -38,7 +41,7 @@ class LuhnTest extends TestCase
     }
 
     /**
-     * Data provider about validating invalid number
+     * Data provider about validating invalid number.
      *
      * @return array<mixed>
      */
@@ -75,7 +78,7 @@ class LuhnTest extends TestCase
     }
 
     /**
-     * Data provider about creating number
+     * Data provider about creating number.
      *
      * @return array<mixed>
      */
@@ -105,7 +108,7 @@ class LuhnTest extends TestCase
     }
 
     /**
-     * Test for creating on invalid numeric string
+     * Test for creating on invalid numeric string.
      *
      * @return void
      */
@@ -121,7 +124,7 @@ class LuhnTest extends TestCase
     }
 
     /**
-     * Test for validating on invalid numeric string
+     * Test for validating on invalid numeric string.
      *
      * @return void
      */

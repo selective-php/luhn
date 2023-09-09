@@ -4,7 +4,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/github/release/selective-php/luhn.svg)](https://packagist.org/packages/selective/luhn)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
-[![build](https://github.com/selective-php/luhn/workflows/build/badge.svg)](https://github.com/selective-php/luhn/actions)
+[![Build Status](https://github.com/selective-php/luhn/workflows/build/badge.svg)](https://github.com/selective-php/luhn/actions)
 [![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/selective-php/luhn.svg)](https://scrutinizer-ci.com/g/selective-php/luhn/code-structure)
 [![Quality Score](https://img.shields.io/scrutinizer/quality/g/selective-php/luhn.svg)](https://scrutinizer-ci.com/g/selective-php/luhn/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/selective/luhn.svg)](https://packagist.org/packages/selective/luhn/stats)

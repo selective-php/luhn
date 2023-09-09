@@ -9,14 +9,14 @@ use Selective\Luhn\Luhn;
 /**
  * Test.
  */
-class LuhnTest extends TestCase
+final class LuhnTest extends TestCase
 {
     /**
      * Data provider about validating valid number.
      *
      * @return array<mixed>
      */
-    public function providerValidateValidNumber(): array
+    public static function providerValidateValidNumber(): array
     {
         return [
             ['1982'],
@@ -45,7 +45,7 @@ class LuhnTest extends TestCase
      *
      * @return array<mixed>
      */
-    public function providerValidateInvalidNumber(): array
+    public static function providerValidateInvalidNumber(): array
     {
         return [
             ['19829'],
@@ -82,7 +82,7 @@ class LuhnTest extends TestCase
      *
      * @return array<mixed>
      */
-    public function providerCreateNumber(): array
+    public static function providerCreateNumber(): array
     {
         return [
             ['1982', 8],

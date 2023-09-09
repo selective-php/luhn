@@ -11,7 +11,7 @@
 
 ## Requirements
 
-* PHP 7.3+ or 8.0+
+* PHP 8.1+
 
 ## Installation
 
